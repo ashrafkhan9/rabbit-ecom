@@ -1,10 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  Link,
-  useLocation,
-  useNavigate,
-  useSearchParams,
-} from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import register from "../assets/register.webp";
 
 import { registerUser } from "../redux/slice/authSlice";
