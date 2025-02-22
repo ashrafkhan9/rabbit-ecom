@@ -11,18 +11,19 @@ import {
 const UserManagement = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
   const { user } = useSelector((state) => state.auth);
   const { users, loading, error } = useSelector((state) => state.admin);
 
+  // Agar user login nahi hai to redirect kar dein
   useEffect(() => {
-    if (user && user.role !== "admin") {
-      navigate("/");
+    if (!user) {
+      navigate("/login");
     }
   }, [user, navigate]);
 
+  // Sirf authentication check karke users fetch karen
   useEffect(() => {
-    if (user && user.role === "admin") {
+    if (user) {
       dispatch(fetchUsers());
     }
   }, [dispatch, user]);
@@ -45,7 +46,7 @@ const UserManagement = () => {
     e.preventDefault();
     dispatch(addUser(formData));
 
-    // Reset the form after submission
+    // Submission ke baad form ko reset kar dein
     setFormData({
       name: "",
       email: "",
@@ -53,10 +54,6 @@ const UserManagement = () => {
       role: "customer",
     });
   };
-
-  // const handleRoleChange = (userId, newRole) => {
-  //   dispatch(updateUser({ id: userId, role: newRole }));
-  // };
 
   const handleRoleChange = (userId, newRole) => {
     const currentUser = users.find((u) => u._id === userId);
@@ -73,8 +70,9 @@ const UserManagement = () => {
   };
 
   const handleDeleteUser = (userId) => {
-    if (window.confirm("Are you sure to delete this user?"))
+    if (window.confirm("Are you sure to delete this user?")) {
       dispatch(deleteUser(userId));
+    }
   };
 
   return (
@@ -83,7 +81,7 @@ const UserManagement = () => {
       {loading && <p>Loading...</p>}
       {error && <p>Error: {error}</p>}
 
-      {/* Add new user form */}
+      {/* Add New User Form */}
       <div className="p-6 rounded mb-6">
         <h3 className="text-lg font-bold mb-4">Add New User</h3>
         <form onSubmit={handleSubmit}>
@@ -135,11 +133,12 @@ const UserManagement = () => {
               <option value="admin">Admin</option>
             </select>
           </div>
+
           <button
             type="submit"
             className="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600"
           >
-            Add Use
+            Add User
           </button>
         </form>
       </div>
@@ -157,16 +156,18 @@ const UserManagement = () => {
           </thead>
 
           <tbody>
-            {users.map((user, index) => (
+            {users.map((userItem, index) => (
               <tr key={index} className="border-b hover:bg-gray-50">
                 <td className="p-4 font-medium text-gray-900 whitespace-nowrap">
-                  {user.name}
+                  {userItem.name}
                 </td>
-                <td className="p-4">{user.email}</td>
+                <td className="p-4">{userItem.email}</td>
                 <td className="p-4">
                   <select
-                    value={user.role}
-                    onChange={(e) => handleRoleChange(user._id, e.target.value)}
+                    value={userItem.role}
+                    onChange={(e) =>
+                      handleRoleChange(userItem._id, e.target.value)
+                    }
                     className="p-2 border rounded"
                   >
                     <option value="customer">Customer</option>
@@ -175,7 +176,7 @@ const UserManagement = () => {
                 </td>
                 <td className="p-4">
                   <button
-                    onClick={() => handleDeleteUser(user._id)}
+                    onClick={() => handleDeleteUser(userItem._id)}
                     className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
                   >
                     Delete

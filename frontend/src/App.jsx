@@ -52,7 +52,7 @@ const App = () => {
           <Route
             path="admin"
             element={
-              <ProtectedRoutes role="admin">
+              <ProtectedRoutes>
                 <AdminLayout />
               </ProtectedRoutes>
             }

@@ -90,7 +90,16 @@ const Navbar = () => {
         </div>
         {/* Right Icons */}
         <div className="flex items-center space-x-4">
-          {user && user.role === "admin" && (
+          {/* {user && user.role === "admin" && (
+            <NavLink
+              to="/admin"
+              className="block bg-black py-1 px-1 rounded text-sm text-white"
+            >
+              Admin
+            </NavLink>
+          )} */}
+
+          {user && (
             <NavLink
               to="/admin"
               className="block bg-black py-1 px-1 rounded text-sm text-white"

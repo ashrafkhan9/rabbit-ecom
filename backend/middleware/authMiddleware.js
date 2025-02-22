@@ -25,11 +25,19 @@ const protect = async (req, res, next) => {
 };
 // Middleware to check if the usr is an admin
 
+// const admin = (req, res, next) => {
+//   if (req.user && req.user.role === "admin") {
+//     next();
+//   } else {
+//     res.status(403).json({ message: "Not authorized as an admin" });
+//   }
+// };
+
 const admin = (req, res, next) => {
-  if (req.user && req.user.role === "admin") {
+  if (req.user) {
     next();
   } else {
-    res.status(403).json({ message: "Not authorized as an admin" });
+    res.status(403).json({ message: "Not authorized" });
   }
 };
 

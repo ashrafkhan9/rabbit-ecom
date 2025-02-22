@@ -1,3 +1,4 @@
+
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -14,15 +15,16 @@ const OrderManagement = () => {
   const { orders, loading, error } = useSelector((state) => state.adminOrders);
 
   useEffect(() => {
-    if (!user || user.role !== "admin") {
-      navigate("/");
+    // Agar user login nahi hai to login page pe redirect karein
+    if (!user) {
+      navigate("/login");
     } else {
       dispatch(fetchAllOrders());
     }
   }, [dispatch, user, navigate]);
 
-  const handleStatusChange = (userId, status) => {
-    dispatch(updateOrderStatus({ id: userId, status }));
+  const handleStatusChange = (orderId, status) => {
+    dispatch(updateOrderStatus({ id: orderId, status }));
   };
 
   if (loading) return <p>Loading...</p>;
