@@ -1,7 +1,8 @@
 # MERN E-Commerce Website
 
-![HOME PAGE](![Screenshot 2025-02-25 141934](https://github.com/user-attachments/assets/68ea7475-9541-4f29-bbc0-51c378c977e1)
-)
+![HOME PAGE](![Screenshot 2025-02-25 144459](https://github.com/user-attachments/assets/4dc21a00-42ec-4ff7-9d64-2c1979b16b42)
+
+
 
 
 This is a full-stack e-commerce web application built using the MERN (MongoDB, Express.js, React.js, Node.js) stack. The project includes a user-friendly frontend, a robust backend, authentication, and an admin panel for managing products and orders.
@@ -15,10 +16,11 @@ This is a full-stack e-commerce web application built using the MERN (MongoDB, E
 - Secure API with JWT authentication
 - MongoDB database integration
 
- ![LOGIN PAGE](![Screenshot 2025-02-25 142012](https://github.com/user-attachments/assets/4f0c86b9-0749-46e5-8624-a49090b740c3)
+ ![LOGIN PAGE](![Screenshot 2025-02-25 144529](https://github.com/user-attachments/assets/804ee4ec-9ae1-42c3-ad87-d9ff3fa6ded2)
 
 
- ![LOGOUT PAGE](![![Screenshot 2025-02-25 142534](https://github.com/user-attachments/assets/a2fc37ea-ebf6-4725-85cb-771ab05faf62)
+
+ ![LOGOUT PAGE]![Screenshot 2025-02-25 144555](https://github.com/user-attachments/assets/d6b7e560-6255-4fa0-8b10-2b5b428616c1)
 
 
 
