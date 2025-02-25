@@ -50,7 +50,8 @@ const Navbar = () => {
       <nav className="container mx-auto flex items-center justify-between py-4 px-2 sm:px-5">
         <div>
           <NavLink to="/" className="text-2xl font-medium">
-            Rabbit
+            <span className="hidden sm:inline">E-COMMERCE</span>
+            <span className="inline sm:hidden">E-COM</span>
           </NavLink>
         </div>
         {/* Desktop Navigation */}
