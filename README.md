@@ -102,7 +102,6 @@ PORT=5000
 - Use `process.env.PORT` in the backend
 - Deploy on Render, Heroku, or a VPS
 
-## Contributing
-Feel free to contribute to this project by creating a pull request.
+LIVE-LINK: https://rabbit-ecom-r9ur.vercel.app/
 
 
